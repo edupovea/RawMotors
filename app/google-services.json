@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "698309312412",
+    "project_id": "rawmotors-4f97f",
+    "storage_bucket": "rawmotors-4f97f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698309312412:android:b936dbe96ec38b3add9259",
+        "android_client_info": {
+          "package_name": "com.example.rawmotors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698309312412-n6a6483kup5dd9n5cupt2q3sjc7r1v38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhZzFwTdmtPsJGIk2nO4lSuViv9-CFB8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698309312412-n6a6483kup5dd9n5cupt2q3sjc7r1v38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
