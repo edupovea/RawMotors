@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_login.xml" value="0.16" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_registro.xml" value="0.10989583333333333" />
       </map>
     </option>
   </component>

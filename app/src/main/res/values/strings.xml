@@ -5,5 +5,12 @@
     <string name="pass">Contraseña</string>
     <string name="usuarioNoExiste">El usuario no existe</string>
     <string name="contraseñaInvalida">La contraseña es incorrecta</string>
+    <string name="loginOk">Inicio se sesión correcto</string>
+    <string name="forgotPass">"Correo de recuperación enviado a: "</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="registro">Registro</string>
+    <string name="forgot_pass">Forgot pass</string>
+    <string name="mainTitle">Bienvenido a Raw Motors!</string>
+    <string name="adelante">Adelante!</string>
 
 </resources>

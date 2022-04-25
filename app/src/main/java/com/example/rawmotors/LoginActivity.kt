@@ -18,6 +18,10 @@ class LoginActivity : AppCompatActivity() {
     val btnRegistro: Button by lazy {
         findViewById<Button>(R.id.btnRegistro)
     }
+
+    val btnForgotPass: Button by lazy {
+        findViewById<Button>(R.id.btnForgotPass)
+    }
     val user : EditText by lazy { findViewById(R.id.txtUser)}
     val pass : EditText by lazy { findViewById(R.id.txtPassword)}
 
@@ -35,6 +39,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnForgotPass.setOnClickListener {
+            Toast.makeText(this@LoginActivity, getString(R.string.forgotPass) + " " +
+                    user.text.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+
 
         btnLogin.setOnClickListener {
         val tarea = auth.signInWithEmailAndPassword(
@@ -43,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
             tarea.addOnCompleteListener {
                 if (it.isSuccessful){
                     val user = auth.currentUser
-                    Toast.makeText(this@LoginActivity, "Usuario logeado correctamente"+ " " +
+                    Toast.makeText(this@LoginActivity, getString(R.string.loginOk) + " " +
                             user?.email.toString(), Toast.LENGTH_SHORT).show()
                 }else {
                     try {
