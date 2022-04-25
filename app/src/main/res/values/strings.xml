@@ -12,5 +12,13 @@
     <string name="forgot_pass">Forgot pass</string>
     <string name="mainTitle">Bienvenido a Raw Motors!</string>
     <string name="adelante">Adelante!</string>
+    <string name="email">Email</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="registroCompletado">Registro exitoso</string>
+    <string name="contraseñaDebil">La contraseña introducida es demasiado débil. Pon una mejor</string>
+    <string name="credencialesInvalidos">Email y contraseñas no válidos</string>
+    <string name="colisionUsuario">Ya existe un usuario registrado con estas credenciales.</string>
+    <string name="errorDesconocido">Error desconocido. Pruebe otra vez</string>
+    <string name="camposRegistroNoRellenos">Rellena todos los campos porfavor.</string>
 
 </resources>

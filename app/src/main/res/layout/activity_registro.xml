@@ -8,4 +8,61 @@
     android:background="@drawable/wallpaper"
     tools:context=".RegistroActivity">
 
+    <EditText
+        android:id="@+id/txtUserReg"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="60dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/usuario"
+        android:background="@color/white"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmailReg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtEmailReg"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="60dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:textSize="34sp"
+        android:background="@color/white"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/txtPassReg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserReg" />
+
+    <EditText
+        android:id="@+id/txtPassReg"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="60dp"
+        android:layout_height="wrap_content"
+        android:textSize="34sp"
+        android:hint="@string/pass"
+        android:background="@color/white"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailReg" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
