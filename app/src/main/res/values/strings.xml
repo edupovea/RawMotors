@@ -20,5 +20,6 @@
     <string name="colisionUsuario">Ya existe un usuario registrado con estas credenciales.</string>
     <string name="errorDesconocido">Error desconocido. Pruebe otra vez</string>
     <string name="camposRegistroNoRellenos">Rellena todos los campos porfavor.</string>
-
+    <string name="emailRecuperacionEnviado">Email Enviado: Mira tu bandeja de entrada</string>
+    <string name="emailRecuperacionFallo">Error. No se pudo enviar el email de recuperación</string>
 </resources>
