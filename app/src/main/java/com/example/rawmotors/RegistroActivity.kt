@@ -35,10 +35,10 @@ class RegistroActivity : AppCompatActivity() {
 
                 val valoresLogin: HashMap<String, Any> =
                     HashMap<String, Any>()
+                valoresLogin.put("user" , user.text.toString())
                 valoresLogin.put("email" , email.text.toString())
 
-                val tareaInsertar= firestore.collection("users").document(
-                    user.text.toString()).set(valoresLogin)
+                val tareaInsertar= firestore.collection("users").document().set(valoresLogin)
 
                 tareaInsertar.addOnCompleteListener {
                     if (it.isSuccessful){

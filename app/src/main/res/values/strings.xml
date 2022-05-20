@@ -22,4 +22,6 @@
     <string name="camposRegistroNoRellenos">Rellena todos los campos porfavor.</string>
     <string name="emailRecuperacionEnviado">Email Enviado: Mira tu bandeja de entrada</string>
     <string name="emailRecuperacionFallo">Error. No se pudo enviar el email de recuperación</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

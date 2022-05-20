@@ -3,9 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_add_pieza.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_buscar_fragment.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_inflador.xml" value="0.11200000000000002" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_inicio.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_inicio_fragment.xml" value="0.14114583333333333" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_profile_fragment.xml" value="0.176" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_registro.xml" value="0.1" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/item_recycler_pieza.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/main_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
     </option>
   </component>

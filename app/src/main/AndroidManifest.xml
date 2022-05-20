@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RawMotors">
         <activity
+            android:name=".AddPiezaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InfladorActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistroActivity"
             android:exported="false" />
         <activity
