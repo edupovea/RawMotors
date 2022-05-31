@@ -24,7 +24,6 @@ class AddPiezaActivity : AppCompatActivity() {
                 if (addPieza()){
                     Toast.makeText(this, "Información guardada correctamente", Toast.LENGTH_SHORT).show()
                 //actualizar lista de piezas para que se muestren en muro cuando se suba a la bd
-
                 }else{
                     Toast.makeText(this, "No ha sido posible guardar la información correctamente", Toast.LENGTH_SHORT).show()
                 }
