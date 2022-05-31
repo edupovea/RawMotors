@@ -44,7 +44,7 @@ class RegistroActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                         Toast.makeText(this@RegistroActivity, "coleccion insertada", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(this@RegistroActivity, "coleccion NO insertada PUTA", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegistroActivity, "coleccion NO insertada", Toast.LENGTH_SHORT).show()
 
                     }
                 }

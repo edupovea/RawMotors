@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPiezaActivity">
+    android:background="@drawable/bg_gradient"
+    android:orientation="vertical"
+    tools:context=".AddPiezaActivity"
+    android:padding="25dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="@string/addPieza"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtNom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:padding="5dp"
+            android:text="txtNom"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/btn_bordes_redondos_transparente">
+
+        <EditText
+            android:id="@+id/txtBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:text="txtBrand"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+            app:layout_constraintEnd_toStartOf="@+id/txtModel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:text="txtModel"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtBrand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtBrand"
+            app:layout_constraintTop_toTopOf="@+id/txtBrand" />
+
+        <EditText
+            android:id="@+id/txtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:padding="60dp"
+            android:text="txtDesc"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txtModel"
+            app:layout_constraintStart_toStartOf="@+id/txtBrand" />
+
+        <EditText
+            android:id="@+id/txtPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:text="txtPrice"
+            android:padding="10dp"
+            android:layout_margin="60dp"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir pieza"
+            android:background="@drawable/btn_border_redondos_fondo_blanco"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
