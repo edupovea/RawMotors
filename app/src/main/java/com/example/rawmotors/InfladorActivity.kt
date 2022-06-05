@@ -1,18 +1,31 @@
 package com.example.rawmotors
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import fragments.BuscarFragment
 import fragments.InicioFragment
 import fragments.ProfileFragment
+import models.Pieza
+import recycler.PiezaAdapter
 
 class InfladorActivity : AppCompatActivity() {
+
 
     private val inicioFragment = InicioFragment()
     private val buscarFragment = BuscarFragment()
     private val profileFragment = ProfileFragment()
+
+
+
 
 
     val menu_navigation: BottomNavigationView by lazy {
@@ -21,9 +34,11 @@ class InfladorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inflador)
+        replaceFragment(inicioFragment)
 
 
         menu_navigation.setOnNavigationItemSelectedListener {
+
             when(it.itemId){
                 R.id.ic_inicio -> replaceFragment(inicioFragment)
                 R.id.ic_buscar -> replaceFragment(buscarFragment)
@@ -42,4 +57,7 @@ class InfladorActivity : AppCompatActivity() {
         }
 
     }
+
+
+
 }

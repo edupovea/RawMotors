@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recItem"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="wrap_content"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="10dp">
 
     <ImageView
         android:id="@+id/foto"
@@ -21,10 +23,10 @@
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="15dp"
+        android:text="txtNombre"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:layout_marginLeft="15dp"
         app:layout_constraintStart_toEndOf="@+id/foto"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,10 +34,11 @@
         android:id="@+id/txtPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="50dp"
+        android:text="txtPrecio"
+        android:layout_marginTop="5dp"
         android:textColor="@color/black"
-        android:textSize="25sp"
-
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/imgfav"
         app:layout_constraintStart_toEndOf="@+id/txtNombre"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,10 +47,10 @@
         android:id="@+id/txtMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginLeft="15dp"
+        android:text="txtMarca"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:layout_marginLeft="15dp"
         app:layout_constraintStart_toEndOf="@+id/foto"
         app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
@@ -55,22 +58,27 @@
         android:id="@+id/txtModelo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:text="txtModelo"
         android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/imgfav"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgDelete"
         app:layout_constraintStart_toEndOf="@+id/txtMarca"
         app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
 
     <ImageView
-        android:id="@+id/imgfav"
+        android:id="@+id/imgDelete"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:scrollbarSize="20sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/txtModelo"
-        app:layout_constraintDimensionRatio="0.5:1.5"
+        app:layout_constraintDimensionRatio="1.0:1.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/favs"
-        android:layout_marginRight="10dp"/>
+        app:srcCompat="@drawable/icdelete" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
