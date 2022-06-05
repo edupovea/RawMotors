@@ -1,5 +1,6 @@
 package com.example.rawmotors
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -35,10 +36,10 @@ class RegistroActivity : AppCompatActivity() {
 
                 val valoresLogin: HashMap<String, Any> =
                     HashMap<String, Any>()
-                valoresLogin.put("user" , user.text.toString())
-                valoresLogin.put("email" , email.text.toString())
+                valoresLogin.put("Usuario" , user.text.toString())
+                valoresLogin.put("Email" , email.text.toString())
 
-                val tareaInsertar= firestore.collection("users").document().set(valoresLogin)
+                val tareaInsertar= firestore.collection("users").document(email.text.toString()).set(valoresLogin)
 
                 tareaInsertar.addOnCompleteListener {
                     if (it.isSuccessful){
@@ -61,6 +62,13 @@ class RegistroActivity : AppCompatActivity() {
                                             + " " + auth.currentUser?.email.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
+
+                                val intent: Intent =
+                                    Intent(
+                                        this@RegistroActivity,
+                                        LoginActivity::class.java
+                                    )
+                                startActivity(intent)
                             }else{
                                 try {
                                     throw tarea.exception!!

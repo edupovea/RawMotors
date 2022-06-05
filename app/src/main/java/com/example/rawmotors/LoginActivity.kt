@@ -1,11 +1,13 @@
 package com.example.rawmotors
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
@@ -46,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this@LoginActivity, getString(R.string.forgotPass) + " " +
                     user.text.toString(), Toast.LENGTH_SHORT).show()
 
-            /*val tarea = auth.sendPasswordResetEmail(email.text.toString())
+            val tarea = auth.sendPasswordResetEmail(user.text.toString())
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         Toast.makeText(
@@ -61,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                }*/
+                }
 
         }
 
@@ -76,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
             pass.text.toString())
             tarea.addOnCompleteListener {
                 if (it.isSuccessful){
+                    savePrefs()
                     val intent: Intent =
                         Intent(
                             this@LoginActivity,
@@ -109,5 +112,34 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+    }
+
+    fun savePrefs(){
+        //Este sirve para leer preferencias
+        var preferencias: SharedPreferences =
+            //SIEMPRE LO PONEMOS MODO PRIVADO
+            this.getPreferences(MODE_PRIVATE)
+
+        //Este sirve para escribir o editar preferencias
+        var prefEditor: SharedPreferences.Editor =
+            preferencias.edit()
+
+        prefEditor.putString("usuarioPorDefecto", user.text.toString())
+        prefEditor.putString("contraseñaPorDefecto",pass.text.toString())
+
+        prefEditor.commit()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val prefs:SharedPreferences=this.getPreferences(MODE_PRIVATE)
+
+        user.setText(prefs.getString("usuarioPorDefecto",""))
+        pass.setText(prefs.getString("contraseñaPorDefecto",""))
+        if (prefs.getBoolean("modoOscuro",false)){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 }
