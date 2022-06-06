@@ -14,6 +14,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import fragments.BuscarFragment
 import fragments.InicioFragment
 import fragments.ProfileFragment
+import kotlinx.android.synthetic.main.activity_add_pieza.*
+import kotlinx.android.synthetic.main.item_recycler_pieza.view.*
 import models.Pieza
 import recycler.PiezaAdapter
 
@@ -23,10 +25,6 @@ class InfladorActivity : AppCompatActivity() {
     private val inicioFragment = InicioFragment()
     private val buscarFragment = BuscarFragment()
     private val profileFragment = ProfileFragment()
-
-
-
-
 
     val menu_navigation: BottomNavigationView by lazy {
         findViewById<BottomNavigationView>(R.id.menu_navigation)
@@ -55,6 +53,17 @@ class InfladorActivity : AppCompatActivity() {
             transaction.replace(R.id.fragmentContainer, fragment)
             transaction.commit()
         }
+
+    }
+
+    public fun rellenarCampos(
+        nom:String, prec:Float ,marca:String,
+        modelo:String, desc : String){
+        txtNom.setText(nom)
+        txtBrand.setText(marca)
+        txtModel.txtModelo
+        txtDesc.setText(desc)
+        txtPrice.setText(prec.toString())
 
     }
 

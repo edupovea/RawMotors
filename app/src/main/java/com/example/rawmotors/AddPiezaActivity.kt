@@ -1,5 +1,6 @@
 package com.example.rawmotors
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_add_pieza.*
 import kotlinx.android.synthetic.main.activity_inicio_fragment.*
+import kotlinx.android.synthetic.main.item_recycler_pieza.*
 import models.Pieza
 import recycler.PiezaAdapter
 
@@ -24,12 +26,12 @@ class AddPiezaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_pieza)
+        recibirDatos()
 
         btnAdd.setOnClickListener {
-            if (!txtNom.text.isBlank() && !txtBrand.text.isBlank() && !txtModel.text.isBlank() && !txtDesc.text.isBlank() && !txtPrice.text.isBlank()) {
+            if (!txtNom.text?.isNullOrEmpty()!! && !txtBrand.text?.isNullOrEmpty()!! && !txtModel.text?.isNullOrEmpty()!! && !txtDesc.text?.isNullOrEmpty()!! && !txtPrice.text?.isNullOrEmpty()!!) {
                 if (addPieza()){
                     Toast.makeText(this, "Información guardada correctamente", Toast.LENGTH_SHORT).show()
-                    consultarBD()
 
                 }else{
                     Toast.makeText(this, "No ha sido posible guardar la información correctamente", Toast.LENGTH_SHORT).show()
@@ -39,6 +41,9 @@ class AddPiezaActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.camposRegistroNoRellenos, Toast.LENGTH_SHORT).show()
             }
 
+        }
+        btnImage.setOnClickListener {
+           //abrir carpeta de imgs para que seleccione icono el usuario
         }
 
     }
@@ -63,13 +68,19 @@ class AddPiezaActivity : AppCompatActivity() {
 
     }
 
-    fun consultarBD(){
-        var adapter = PiezaAdapter(this, listaPiezas)
-        recyclerInicio.adapter = adapter
-        recyclerInicio.layoutManager = LinearLayoutManager(this)
-        adapter.notifyDataSetChanged()
-        }
+    private fun recibirDatos(){
+        val intent : Bundle? = this.intent.extras
+        val pieza : Pieza = intent?.getSerializable("infoPieza") as Pieza
+        txtNom.setText(pieza.Nombre)
+        txtPrice.setText(pieza.Precio.toString())
+        txtDesc.setText(pieza.Descripcion)
+        txtBrand.setText(pieza.Marca)
+        txtModel.setText(pieza.Modelo)
     }
+
+    }
+
+
 
 
 

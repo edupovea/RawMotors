@@ -2,6 +2,7 @@ package fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio_fragment.*
 import models.Pieza
 import recycler.PiezaAdapter
+import recycler.PiezaInicioAdapter
 
 class InicioFragment : Fragment() {
 
@@ -55,8 +57,7 @@ class InicioFragment : Fragment() {
                     listaPiezas.add(pieza)
                 }
 
-
-                var adapter = PiezaAdapter(context as FragmentActivity, listaPiezas)
+                var adapter = PiezaInicioAdapter(context as FragmentActivity, listaPiezas)
                 recyclerInicio.adapter = adapter
                 recyclerInicio.layoutManager = LinearLayoutManager(context)
                 adapter.notifyDataSetChanged()
