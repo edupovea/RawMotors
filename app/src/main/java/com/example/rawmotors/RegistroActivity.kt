@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
@@ -49,9 +50,7 @@ class RegistroActivity : AppCompatActivity() {
 
                     }
                 }
-
-
-
+                
                 tarea.addOnCompleteListener ( this ,
                     object : OnCompleteListener<AuthResult>{
                         override fun onComplete(p0: Task<AuthResult>) {
@@ -73,29 +72,16 @@ class RegistroActivity : AppCompatActivity() {
                                 try {
                                     throw tarea.exception!!
                                 } catch (e: FirebaseAuthWeakPasswordException) {
-                                    Toast.makeText(
-                                        this@RegistroActivity,
-                                        R.string.contraseñaDebil,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    showAlert(R.string.contraseñaDebil)
+
                                 } catch (e: FirebaseAuthInvalidCredentialsException) {
-                                    Toast.makeText(
-                                        this@RegistroActivity,
-                                        R.string.credencialesInvalidos,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    showAlert(R.string.credencialesInvalidos)
+
                                 } catch (e: FirebaseAuthUserCollisionException) {
-                                    Toast.makeText(
-                                        this@RegistroActivity,
-                                        R.string.colisionUsuario,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    showAlert(R.string.colisionUsuario)
                                 } catch (e: Exception) {
-                                    Toast.makeText(
-                                        this@RegistroActivity,
-                                        R.string.errorDesconocido,
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    showAlert(R.string.errorDesconocido)
+
                                 }
                             }
                         }
@@ -103,14 +89,20 @@ class RegistroActivity : AppCompatActivity() {
 
                     })
             }else{
-                Toast.makeText(
-                    this@RegistroActivity,R.string.camposRegistroNoRellenos,
-                    Toast.LENGTH_LONG
-                ).show()
+                showAlert(R.string.camposRegistroNoRellenos)
 
             }
             }
         }
+
+    private fun showAlert(msj: Int) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.loginFallido)
+        builder.setMessage(msj)
+        builder.setPositiveButton(R.string.reintentar, null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 
 
     }

@@ -23,4 +23,25 @@
     <string name="emailRecuperacionEnviado">Email Enviado: Mira tu bandeja de entrada</string>
     <string name="emailRecuperacionFallo">Error. No se pudo enviar el email de recuperación</string>
     <string name="addPieza">Añade tu producto a tu inventario</string>
+    <string name="piezaInsertada">Pieza insertada correctamente</string>
+    <string name="exito">Registro exitoso</string>
+    <string name="continuar">Continuar</string>
+    <string name="piezaNoInsertada">Error en la insercción</string>
+    <string name="error">Error</string>
+    <string name="reintentar">Reintentar</string>
+    <string name="loginFallido">Login fallido</string>
+    <string name="checkEmail">Revisa tu bandeja de entrada</string>
+
+    <array name="filtros">
+        <item>Nombre</item>
+        <item>Marca</item>
+        <item>Modelo</item>
+    </array>
+    <array name="tiposVia">
+        <item>Avenida</item>
+        <item>Calle</item>
+        <item>Camino</item>
+        <item>Pasaje</item>
+        <item>Carretera</item>
+    </array>
 </resources>

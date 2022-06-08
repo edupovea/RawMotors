@@ -37,10 +37,11 @@ class PiezaInicioAdapter (val contexto: FragmentActivity, val piezas : ArrayList
         holder.modelo.text = piezas[position].Modelo.toString()
         holder.precio.text = piezas[position].Precio.toString() + "€"
         holder.foto.setOnClickListener {
+
             val intent: Intent = Intent(contexto, DetalleActivity::class.java)
-            var pzaEdit : Pieza = piezas[position]
+            var detailPieza : Pieza = piezas[position]
             val bundle = Bundle()
-            bundle.putSerializable("infoPieza", pzaEdit)
+            bundle.putSerializable("infoDetalle", detailPieza)
             intent.putExtras(bundle)
             contexto.startActivity(intent)
         }

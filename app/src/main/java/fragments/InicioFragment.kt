@@ -1,6 +1,7 @@
 package fragments
 
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,17 +14,18 @@ import com.example.rawmotors.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_inicio_fragment.*
+import kotlinx.android.synthetic.main.activity_profile_fragment.*
 import models.Pieza
 import recycler.PiezaAdapter
 import recycler.PiezaInicioAdapter
 
-class InicioFragment : Fragment() {
+class InicioFragment() : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
     val auth by lazy { FirebaseAuth.getInstance() }
     val thisUser = auth.currentUser?.email.toString()
 
-    protected var listaPiezas: ArrayList<Pieza> = ArrayList<Pieza>()
+    protected var listaInicioPiezas: ArrayList<Pieza> = ArrayList<Pieza>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +38,18 @@ class InicioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getPiezas()
+
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        getInicioPiezas()
+    }
 
-    fun getPiezas() {
-        listaPiezas = arrayListOf<Pieza>()
-        listaPiezas.clear()
+    private fun getInicioPiezas() {
+        listaInicioPiezas = arrayListOf<Pieza>()
+        listaInicioPiezas.clear()
         val docPieza = db.collection("piezas").whereNotEqualTo("Email", thisUser)
         docPieza.get()
             .addOnSuccessListener { result ->
@@ -54,10 +60,11 @@ class InicioFragment : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio = document.data.getValue("Price").toString().toDouble()
-                    listaPiezas.add(pieza)
+                    listaInicioPiezas.add(pieza)
                 }
 
-                var adapter = PiezaInicioAdapter(context as FragmentActivity, listaPiezas)
+            }.addOnCompleteListener {
+                var adapter = PiezaInicioAdapter(context as FragmentActivity, listaInicioPiezas)
                 recyclerInicio.adapter = adapter
                 recyclerInicio.layoutManager = LinearLayoutManager(context)
                 adapter.notifyDataSetChanged()

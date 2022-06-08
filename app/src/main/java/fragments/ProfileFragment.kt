@@ -25,7 +25,7 @@ import recycler.PiezaAdapter
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var piezaArrayList: ArrayList<Pieza>
+    private lateinit var profileArrayList: ArrayList<Pieza>
     private val db = FirebaseFirestore.getInstance()
     val auth by lazy { FirebaseAuth.getInstance() }
     val thisUser = auth.currentUser?.email.toString()
@@ -40,8 +40,14 @@ class ProfileFragment : Fragment() {
 
         return inflater.inflate(R.layout.activity_profile_fragment, container, false)
 
+
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        getProfilePiezas()
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var comp = false
@@ -51,11 +57,13 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        getPiezas()
-
-
 
         btnAddPieza.setOnClickListener {
+            val cambiarPantalla = Intent(context, AddPiezaActivity::class.java)
+            startActivity(cambiarPantalla)
+        }
+
+        btnVendido.setOnClickListener {
             val cambiarPantalla = Intent(context, AddPiezaActivity::class.java)
             startActivity(cambiarPantalla)
         }
@@ -76,11 +84,12 @@ class ProfileFragment : Fragment() {
         }
         return true
     }
-     fun getPiezas() {
+     private fun getProfilePiezas() {
 
-        piezaArrayList = arrayListOf<Pieza>()
-        piezaArrayList.clear()
+        profileArrayList = arrayListOf<Pieza>()
+         profileArrayList.clear()
         val docPieza = db.collection("piezas").whereEqualTo("Email", thisUser)
+            .whereEqualTo("Vendido",false)
         docPieza.get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -90,15 +99,15 @@ class ProfileFragment : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio =  document.data.getValue("Price").toString().toDouble()
-                    piezaArrayList.add(pieza)
+                    profileArrayList.add(pieza)
                 }
-
-
-                var adapter = PiezaAdapter(context as FragmentActivity, piezaArrayList)
+            }.addOnCompleteListener {
+                var adapter = PiezaAdapter(context as FragmentActivity, profileArrayList)
                 recyclerPiezas.adapter = adapter
                 recyclerPiezas.layoutManager = LinearLayoutManager(context)
                 adapter.notifyDataSetChanged()
             }
+
 
     }
 

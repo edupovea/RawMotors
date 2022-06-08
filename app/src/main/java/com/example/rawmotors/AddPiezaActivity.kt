@@ -18,9 +18,7 @@ class AddPiezaActivity : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     val auth by lazy { FirebaseAuth.getInstance() }
-    protected lateinit var  lista: RecyclerView
-    protected lateinit var adapter: PiezaAdapter
-    protected var listaPiezas: ArrayList<Pieza> =ArrayList<Pieza>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +48,7 @@ class AddPiezaActivity : AppCompatActivity() {
 
     fun addPieza(): Boolean{
         val thisUser = auth.currentUser?.email.toString()
+        val vendido : Boolean = false
 
         db.collection("piezas").document(txtNom.text.toString()+" "+txtBrand.text.toString()).set(
             hashMapOf(
@@ -58,8 +57,8 @@ class AddPiezaActivity : AppCompatActivity() {
                 "Brand" to txtBrand.text.toString(),
                 "Modelo" to txtModel.text.toString(),
                 "Descripcion" to txtDesc.text.toString(),
-                "Price" to txtPrice.text.toString().toDouble()
-
+                "Price" to txtPrice.text.toString().toDouble(),
+                "Vendido" to vendido
             )
         )
 

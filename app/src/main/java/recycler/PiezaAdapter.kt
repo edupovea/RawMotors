@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import com.example.rawmotors.AddPiezaActivity
+import com.example.rawmotors.EditPiezaActivity
 import com.example.rawmotors.R
 import com.google.firebase.firestore.FirebaseFirestore
 import models.Pieza
@@ -33,7 +34,7 @@ class PiezaAdapter (val contexto: FragmentActivity, val piezas : ArrayList<Pieza
         holder.precio.text = piezas[position].Precio.toString() + "€"
 
         holder.foto.setOnClickListener {
-            val intent: Intent = Intent(contexto, AddPiezaActivity::class.java)
+            val intent: Intent = Intent(contexto, EditPiezaActivity::class.java)
             var pzaEdit : Pieza = piezas[position]
             val bundle = Bundle()
             bundle.putSerializable("infoPieza", pzaEdit)

@@ -4,4 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"/>
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/spFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/filtros"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscador" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerBuscador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

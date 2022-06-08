@@ -44,9 +44,8 @@ class InfladorActivity : AppCompatActivity() {
             }
             true
         }
-
-
     }
+
     private fun replaceFragment(fragment: Fragment){
         if (fragment!=null){
             val transaction= supportFragmentManager.beginTransaction()
@@ -55,18 +54,4 @@ class InfladorActivity : AppCompatActivity() {
         }
 
     }
-
-    public fun rellenarCampos(
-        nom:String, prec:Float ,marca:String,
-        modelo:String, desc : String){
-        txtNom.setText(nom)
-        txtBrand.setText(marca)
-        txtModel.txtModelo
-        txtDesc.setText(desc)
-        txtPrice.setText(prec.toString())
-
-    }
-
-
-
 }
