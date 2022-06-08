@@ -7,26 +7,19 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
     val firestore by lazy { FirebaseFirestore.getInstance() }
 
-    val btnLogin: Button by lazy {
-        findViewById<Button>(R.id.btnLogin)
-    }
-    val btnRegistro: Button by lazy {
-        findViewById<Button>(R.id.btnRegistro)
-    }
 
-    val btnForgotPass: Button by lazy {
-        findViewById<Button>(R.id.btnForgotPass)
-    }
     val user : EditText by lazy { findViewById(R.id.txtUser)}
     val pass : EditText by lazy { findViewById(R.id.txtPassword)}
 
@@ -49,19 +42,13 @@ class LoginActivity : AppCompatActivity() {
                     user.text.toString(), Toast.LENGTH_SHORT).show()
 
             val tarea = auth.sendPasswordResetEmail(user.text.toString())
-                .addOnCompleteListener {
+
+                tarea.addOnCompleteListener {
                     if (it.isSuccessful) {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            R.string.emailRecuperacionEnviado,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        showAlert(R.string.emailRecuperacionEnviado, R.string.checkEmail, R.string.continuar)
+
                     } else {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            R.string.emailRecuperacionFallo,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        showAlert(R.string.emailRecuperacionFallo, R.string.error, R.string.reintentar)
                     }
                 }
 
@@ -70,8 +57,6 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
-        //firestore.collection("users").where("author", "==", user.text.toString()).get()
-            //val em=firestore.collection("users").whereEqualTo("user", user.text.toString())
 
             val tarea = auth.signInWithEmailAndPassword(
                 user.text.toString(),
@@ -85,24 +70,15 @@ class LoginActivity : AppCompatActivity() {
                             InfladorActivity::class.java
                         )
                     startActivity(intent)
-                    val user = auth.currentUser
-                    Toast.makeText(this@LoginActivity, getString(R.string.loginOk) + " " +
-                            user?.email.toString(), Toast.LENGTH_SHORT).show()
+
                 }else {
                     try {
                         throw tarea.exception!!;
                     } catch (ex: FirebaseAuthInvalidUserException) {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            R.string.usuarioNoExiste,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        showAlert(R.string.usuarioNoExiste,R.string.error,R.string.reintentar)
+
                     } catch (ex: FirebaseAuthInvalidCredentialsException) {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            R.string.contraseñaInvalida,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        showAlert(R.string.contraseñaInvalida,R.string.error,R.string.reintentar)
                     }
                 }
             }
@@ -112,6 +88,14 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+    }
+    private fun showAlert(msj: Int, title : Int, btn : Int) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setMessage(msj)
+        builder.setPositiveButton(btn, null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     fun savePrefs(){
@@ -136,10 +120,6 @@ class LoginActivity : AppCompatActivity() {
 
         user.setText(prefs.getString("usuarioPorDefecto",""))
         pass.setText(prefs.getString("contraseñaPorDefecto",""))
-        if (prefs.getBoolean("modoOscuro",false)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
+
     }
 }
