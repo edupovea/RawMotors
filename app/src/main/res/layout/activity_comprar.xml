@@ -14,13 +14,12 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginBottom="40dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black">
+        android:textColor="@color/black">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Introduce tus datos para mandarte tu producto"
+            android:text="@string/lblIntroInfo"
             android:padding="10dp"
             android:textSize="21sp"
             android:textStyle="bold"
@@ -34,6 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_botones_redondos_marron"
         >
 
         <Spinner
@@ -41,9 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/white"
-            android:layout_margin="10dp"
-            android:padding="10dp"
+            android:padding="15dp"
             android:entries="@array/tiposVia"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -52,17 +51,20 @@
         android:id="@+id/ly1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black">
+        android:textColorHint="@color/black"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtCalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="15dp"
+            android:background="@drawable/btn_botones_redondos_marron"
             android:inputType="text"
-            android:hint="Nombre de la calle"
+            android:hint="@string/lblNomCalle"
            />
 
 
@@ -76,9 +78,10 @@
             android:id="@+id/ly2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColorHint="@color/black"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ly3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -87,7 +90,8 @@
                 android:id="@+id/txtNumCalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Número"
+                android:hint="@string/lblNumCalle"
+                android:background="@drawable/btn_botones_redondos_marron"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,8 +99,7 @@
             android:id="@+id/ly3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:padding="10dp"
-
+            android:layout_margin="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +112,8 @@
                 android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Cod. Postal"/>
+                android:background="@drawable/btn_botones_redondos_marron"
+                android:hint="@string/lblCodPost"/>
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -126,7 +130,8 @@
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ciudad" />
+            android:background="@drawable/btn_botones_redondos_marron"
+            android:hint="@string/lblCiudad" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -141,8 +146,9 @@
             android:id="@+id/txtTlf"
             android:inputType="phone"
             android:layout_width="match_parent"
+            android:background="@drawable/btn_botones_redondos_marron"
             android:layout_height="wrap_content"
-            android:hint="Número de teléfono" />
+            android:hint="@string/lblNumTlf" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

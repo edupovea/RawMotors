@@ -39,7 +39,7 @@ class PiezaInicioAdapter (val contexto: FragmentActivity, val piezas : ArrayList
         holder.foto.setOnClickListener {
 
             val intent: Intent = Intent(contexto, DetalleActivity::class.java)
-            var detailPieza : Pieza = piezas[position]
+            var detailPieza : Pieza? = piezas[position]
             val bundle = Bundle()
             bundle.putSerializable("infoDetalle", detailPieza)
             intent.putExtras(bundle)

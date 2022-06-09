@@ -69,12 +69,16 @@ class AddPiezaActivity : AppCompatActivity() {
 
     private fun recibirDatos(){
         val intent : Bundle? = this.intent.extras
-        val pieza : Pieza = intent?.getSerializable("infoPieza") as Pieza
-        txtNom.setText(pieza.Nombre)
-        txtPrice.setText(pieza.Precio.toString())
-        txtDesc.setText(pieza.Descripcion)
-        txtBrand.setText(pieza.Marca)
-        txtModel.setText(pieza.Modelo)
+        val pieza : Pieza? = intent?.getSerializable("infoPieza") as Pieza?
+        Toast.makeText(this, pieza?.Precio.toString(), Toast.LENGTH_SHORT).show()
+        if (pieza == null){
+            txtPrice.setText("")
+        }
+        txtNom.setText(pieza?.Nombre)
+        txtPrice.setText(pieza?.Precio.toString())
+        txtDesc.setText(pieza?.Descripcion)
+        txtBrand.setText(pieza?.Marca)
+        txtModel.setText(pieza?.Modelo)
     }
 
     }

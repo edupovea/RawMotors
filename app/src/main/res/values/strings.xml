@@ -31,6 +31,19 @@
     <string name="reintentar">Reintentar</string>
     <string name="loginFallido">Login fallido</string>
     <string name="checkEmail">Revisa tu bandeja de entrada</string>
+    <string name="lblIntroInfo">Introduce tus datos para mandarte tu producto</string>
+    <string name="lblNomCalle">Nombre de la calle</string>
+    <string name="lblNumCalle">Número</string>
+    <string name="lblCodPost">Cod. Postal</string>
+    <string name="lblCiudad">Ciudad</string>
+    <string name="lblNumTlf">Número de teléfono</string>
+    <string name="nombre">Nombre</string>
+    <string name="marca">Marca</string>
+    <string name="model">Modelo</string>
+    <string name="desc">Descripción</string>
+    <string name="precio">Precio</string>
+    <string name="adPieza">Añadir pieza</string>
+
 
     <array name="filtros">
         <item>Nombre</item>
