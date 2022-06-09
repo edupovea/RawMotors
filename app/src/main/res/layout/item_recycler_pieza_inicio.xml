@@ -26,7 +26,7 @@
         android:layout_marginLeft="30dp"
         android:text="txtNombre"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/foto"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
         android:layout_marginLeft="30dp"
         android:text="txtMarca"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/foto"
         app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
@@ -62,7 +62,7 @@
         android:layout_marginLeft="30dp"
         android:text="txtModelo"
         android:textColor="@color/black"
-        android:textSize="23sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtMarca"
         app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RawMotors">
         <activity
+            android:name=".SoldItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".DatosCompraActivity"
             android:exported="false" />
         <activity

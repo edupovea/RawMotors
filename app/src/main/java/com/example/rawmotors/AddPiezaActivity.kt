@@ -1,9 +1,11 @@
 package com.example.rawmotors
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_inicio_fragment.*
 import kotlinx.android.synthetic.main.item_recycler_pieza.*
 import models.Pieza
 import recycler.PiezaAdapter
+import kotlin.system.exitProcess
 
 class AddPiezaActivity : AppCompatActivity() {
 
@@ -29,19 +32,16 @@ class AddPiezaActivity : AppCompatActivity() {
         btnAdd.setOnClickListener {
             if (!txtNom.text?.isNullOrEmpty()!! && !txtBrand.text?.isNullOrEmpty()!! && !txtModel.text?.isNullOrEmpty()!! && !txtDesc.text?.isNullOrEmpty()!! && !txtPrice.text?.isNullOrEmpty()!!) {
                 if (addPieza()){
-                    Toast.makeText(this, "Información guardada correctamente", Toast.LENGTH_SHORT).show()
+                    showAlert(R.string.addCorrrect, R.string.exito, R.string.continuar)
 
                 }else{
-                    Toast.makeText(this, "No ha sido posible guardar la información correctamente", Toast.LENGTH_SHORT).show()
+                    showAlert(R.string.addedWrong, R.string.error, R.string.reintentar)
                 }
 
             }else{
                 Toast.makeText(this, R.string.camposRegistroNoRellenos, Toast.LENGTH_SHORT).show()
             }
 
-        }
-        btnImage.setOnClickListener {
-           //abrir carpeta de imgs para que seleccione icono el usuario
         }
 
     }
@@ -79,6 +79,15 @@ class AddPiezaActivity : AppCompatActivity() {
         txtDesc.setText(pieza?.Descripcion)
         txtBrand.setText(pieza?.Marca)
         txtModel.setText(pieza?.Modelo)
+    }
+
+    private fun showAlert(msj: Int, title : Int, btn : Int) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setMessage(msj)
+        builder.setPositiveButton(btn, null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     }

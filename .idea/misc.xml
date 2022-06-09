@@ -9,8 +9,10 @@
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/drawable/btn_botones_redondos_marron.xml" value="0.183" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/drawable/btn_btn_border_redondos_fondo_blanco.xml" value="0.255" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_add_pieza.xml" value="0.152" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_añadir_pieza.xml" value="0.25" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_añadirpza.xml" value="0.19123505976095617" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_buscar_fragment.xml" value="0.16" />
-        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_comprar.xml" value="0.264" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_comprar.xml" value="0.19123505976095617" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_datos_compra.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_detalle.xml" value="0.2" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_edit_pieza.xml" value="0.20521590423257802" />
@@ -23,6 +25,7 @@
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_profile_fragment.xml" value="0.2" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_registro.xml" value="0.16" />
+        <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/activity_sold_item.xml" value="0.25" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/item_recycler_pieza.xml" value="0.176" />
         <entry key="..\:/Users/edupo/AndroidStudioProjects/RawMotors/app/src/main/res/layout/item_recycler_pieza_inicio.xml" value="0.22826086956521738" />

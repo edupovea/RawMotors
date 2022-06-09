@@ -43,6 +43,8 @@
     <string name="desc">Descripción</string>
     <string name="precio">Precio</string>
     <string name="adPieza">Añadir pieza</string>
+    <string name="addCorrrect">Información guardada correctamente</string>
+    <string name="addedWrong">No ha sido posible guardar la información correctamente</string>
 
 
     <array name="filtros">

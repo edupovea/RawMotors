@@ -54,7 +54,8 @@ class InicioFragment() : Fragment() {
     private fun getInicioPiezas() {
         listaInicioPiezas = arrayListOf<Pieza>()
         listaInicioPiezas.clear()
-        val docPieza = db.collection("piezas").whereNotEqualTo("Email", thisUser)
+        val docPieza = db.collection("piezas").whereNotEqualTo("Email", thisUser).whereEqualTo("Vendido", false)
+
         docPieza.get()
             .addOnSuccessListener { result ->
                 for (document in result) {

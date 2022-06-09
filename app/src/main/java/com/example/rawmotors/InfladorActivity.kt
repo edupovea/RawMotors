@@ -1,24 +1,13 @@
 package com.example.rawmotors
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
+
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.FirebaseFirestore
 import fragments.BuscarFragment
 import fragments.InicioFragment
 import fragments.ProfileFragment
-import kotlinx.android.synthetic.main.activity_add_pieza.*
-import kotlinx.android.synthetic.main.item_recycler_pieza.view.*
-import models.Pieza
-import recycler.PiezaAdapter
-
 class InfladorActivity : AppCompatActivity() {
 
 

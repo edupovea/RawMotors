@@ -50,6 +50,7 @@ class BuscarFragment : Fragment() {
 
     private fun getBuscadorPiezas() {
         var filtroBD : String ?= null
+        var em : String
         if (spFiltro.selectedItem.toString() == "Marca") {
             filtroBD = "Brand"
         }else{
@@ -58,8 +59,9 @@ class BuscarFragment : Fragment() {
         Toast.makeText(this.requireContext(), filtroBD+"", Toast.LENGTH_SHORT).show()
         listaBuscadorPiezas = arrayListOf<Pieza>()
         listaBuscadorPiezas.clear()
-        val docPieza = db.collection("piezas").whereEqualTo(filtroBD!!,txtFiltro.toString())
-           /*.whereNotEqualTo("Email", thisUser)*/.orderBy(filtroBD)
+        val docPieza = db.collection("piezas").orderBy(filtroBD).whereEqualTo("Vendido", false)
+           // .whereEqualTo(filtroBD,txtFiltro.toString())
+//            docPieza.whereNotEqualTo("Email", thisUser).orderBy("Email")
 
 
         docPieza.get()
@@ -71,7 +73,11 @@ class BuscarFragment : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio = document.data.getValue("Price").toString().toDouble()
-                    listaBuscadorPiezas.add(pieza)
+                    em = document.data.getValue("Email").toString()
+                    if (em != thisUser){
+                        listaBuscadorPiezas.add(pieza)
+                    }
+
                 }
 
             }.addOnCompleteListener {

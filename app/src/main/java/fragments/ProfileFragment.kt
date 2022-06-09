@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rawmotors.AddPiezaActivity
+import com.example.rawmotors.InfladorActivity
 import com.example.rawmotors.R
+import com.example.rawmotors.SoldItemActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.*
@@ -42,6 +44,7 @@ class ProfileFragment : Fragment() {
 
 
 
+
     }
 
     override fun onResume() {
@@ -64,11 +67,12 @@ class ProfileFragment : Fragment() {
         }
 
         btnVendido.setOnClickListener {
-            val cambiarPantalla = Intent(context, AddPiezaActivity::class.java)
+            val cambiarPantalla = Intent(context, SoldItemActivity::class.java)
             startActivity(cambiarPantalla)
         }
 
     }
+
 
     fun getNombre(): Boolean {
         var uname : String ?= null
@@ -88,7 +92,7 @@ class ProfileFragment : Fragment() {
 
         profileArrayList = arrayListOf<Pieza>()
          profileArrayList.clear()
-        val docPieza = db.collection("piezas").whereEqualTo("Email", thisUser)
+        val docPieza = db.collection("piezas").whereEqualTo("Email", thisUser).whereEqualTo("Vendido", false)
             .whereEqualTo("Vendido",false)
         docPieza.get()
             .addOnSuccessListener { result ->
@@ -110,6 +114,7 @@ class ProfileFragment : Fragment() {
 
 
     }
+
 
 
 }
