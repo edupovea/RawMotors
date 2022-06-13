@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rawmotors.AddPiezaActivity
 import com.example.rawmotors.InfladorActivity
@@ -42,24 +44,31 @@ class ProfileFragment : Fragment() {
 
         return inflater.inflate(R.layout.activity_profile_fragment, container, false)
 
-
-
-
     }
 
     override fun onResume() {
         super.onResume()
-        getProfilePiezas()
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         var comp = false
         while (comp == false){
             if (getNombre()){
                 comp = true
             }
         }
+        getProfilePiezas()
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        recyclerPiezas.apply {
+            setHasFixedSize(true)
+            var itemDecoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
+            getDrawable(context as FragmentActivity,R.drawable.divider)?.let {
+                itemDecoration.setDrawable(
+                    it
+                )
+            }
+            addItemDecoration(itemDecoration)
+        }
 
         btnAddPieza.setOnClickListener {
             val cambiarPantalla = Intent(context, AddPiezaActivity::class.java)
@@ -90,10 +99,10 @@ class ProfileFragment : Fragment() {
     }
      private fun getProfilePiezas() {
 
-        profileArrayList = arrayListOf<Pieza>()
+         profileArrayList = arrayListOf<Pieza>()
          profileArrayList.clear()
         val docPieza = db.collection("piezas").whereEqualTo("Email", thisUser).whereEqualTo("Vendido", false)
-            .whereEqualTo("Vendido",false)
+
         docPieza.get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -103,13 +112,14 @@ class ProfileFragment : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio =  document.data.getValue("Price").toString().toDouble()
-                    profileArrayList.add(pieza)
+                        profileArrayList.add(pieza)
+
                 }
             }.addOnCompleteListener {
-                var adapter = PiezaAdapter(context as FragmentActivity, profileArrayList)
-                recyclerPiezas.adapter = adapter
+                var adapterProfile = PiezaAdapter(context as FragmentActivity, profileArrayList)
+                recyclerPiezas.adapter = adapterProfile
                 recyclerPiezas.layoutManager = LinearLayoutManager(context)
-                adapter.notifyDataSetChanged()
+                adapterProfile.notifyDataSetChanged()
             }
 
 

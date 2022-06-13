@@ -2,7 +2,9 @@ package com.example.rawmotors
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_sold_item.*
 import models.Pieza
 import recycler.PiezaAdapter
 import recycler.PiezaInicioAdapter
+import recycler.PiezaVendidaAdapter
 
 class SoldItemActivity : AppCompatActivity() {
     private lateinit var vendidasArraylist: ArrayList<Pieza>
@@ -21,6 +24,16 @@ class SoldItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sold_item)
+        recyclerVendido.apply {
+            setHasFixedSize(true)
+            var itemDecoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
+            AppCompatResources.getDrawable(context as FragmentActivity, R.drawable.divider)?.let {
+                itemDecoration.setDrawable(
+                    it
+                )
+            }
+            addItemDecoration(itemDecoration)
+        }
     }
 
     override fun onResume() {
@@ -46,10 +59,10 @@ class SoldItemActivity : AppCompatActivity() {
                     vendidasArraylist.add(pieza)
                 }
             }.addOnCompleteListener {
-                var adapter = PiezaInicioAdapter(this, vendidasArraylist)
-                recyclerVendido.adapter = adapter
+                var adapterSold = PiezaVendidaAdapter(this@SoldItemActivity, vendidasArraylist)
+                recyclerVendido.adapter = adapterSold
                 recyclerVendido.layoutManager = LinearLayoutManager(this)
-                adapter.notifyDataSetChanged()
+                adapterSold.notifyDataSetChanged()
             }
 
 

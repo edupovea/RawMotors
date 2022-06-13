@@ -4,34 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/bg_gradient"
     android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/spFiltro"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/filtros"
-        android:spinnerMode="dropdown" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnBuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buscar" />
+        <Spinner
+            android:id="@+id/spFiltro"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/filtros"
+            android:spinnerMode="dropdown"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buscar"
+            android:layout_marginStart="70dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spFiltro"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/spFiltro"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="50dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtFiltro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Buscador" />
+            android:hint="@string/buscador" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerBuscador"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 

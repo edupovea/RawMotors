@@ -7,9 +7,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rawmotors.R
 import com.google.firebase.auth.FirebaseAuth
@@ -40,9 +43,16 @@ class InicioFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
+        recyclerInicio.apply {
+            setHasFixedSize(true)
+            var itemDecoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
+            AppCompatResources.getDrawable(context as FragmentActivity, R.drawable.divider)?.let {
+                itemDecoration.setDrawable(
+                    it
+                )
+            }
+            addItemDecoration(itemDecoration)
+        }
     }
 
     override fun onResume() {
@@ -52,9 +62,10 @@ class InicioFragment() : Fragment() {
     }
 
     private fun getInicioPiezas() {
+        var em : String
         listaInicioPiezas = arrayListOf<Pieza>()
         listaInicioPiezas.clear()
-        val docPieza = db.collection("piezas").whereNotEqualTo("Email", thisUser).whereEqualTo("Vendido", false)
+        val docPieza = db.collection("piezas").whereEqualTo("Vendido", false)//.whereNotEqualTo("Email", thisUser)
 
         docPieza.get()
             .addOnSuccessListener { result ->
@@ -65,14 +76,18 @@ class InicioFragment() : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio = document.data.getValue("Price").toString().toDouble()
-                    listaInicioPiezas.add(pieza)
+                    em = document.data.getValue("Email").toString()
+                    if (em != thisUser){
+                        listaInicioPiezas.add(pieza)
+                    }
+
                 }
 
             }.addOnCompleteListener {
-                var adapter = PiezaInicioAdapter(context as FragmentActivity, listaInicioPiezas)
-                recyclerInicio.adapter = adapter
+                var adapterInicio = PiezaInicioAdapter(this.requireActivity(), listaInicioPiezas)
+                recyclerInicio.adapter = adapterInicio
                 recyclerInicio.layoutManager = LinearLayoutManager(context)
-                adapter.notifyDataSetChanged()
+                adapterInicio.notifyDataSetChanged()
             }
     }
 }

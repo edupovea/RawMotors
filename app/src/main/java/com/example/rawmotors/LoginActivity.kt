@@ -38,9 +38,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnForgotPass.setOnClickListener {
-            Toast.makeText(this@LoginActivity, getString(R.string.forgotPass) + " " +
-                    user.text.toString(), Toast.LENGTH_SHORT).show()
-
             val tarea = auth.sendPasswordResetEmail(user.text.toString())
 
                 tarea.addOnCompleteListener {

@@ -14,6 +14,7 @@ import java.util.*
 class ComprarActivity : AppCompatActivity() {
     val auth by lazy { FirebaseAuth.getInstance() }
     var pVendida : Pieza? = Pieza()
+    lateinit var infoCompra : Compra
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,28 +46,30 @@ class ComprarActivity : AppCompatActivity() {
     }
 
     private fun enviarDatos(){
-        var direccion : String ?=null
-        var fecha = Date()
-        var comprador = auth.currentUser.toString()
-        direccion = spinnerTipo.selectedItem.toString()+txtCalle.text.toString()+txtNumCalle.text.toString()+
-                ", "+txtCodPostal.text.toString()+", "+txtCiudad.text.toString()
+        getFormData()
         val cambiarPantalla = Intent(this, DatosCompraActivity::class.java)
-
-
-
-        var infoCompra : Compra = Compra(direccion, fecha, comprador, pVendida!!)
-        val bundle: Bundle = Bundle()
-
-        bundle.putSerializable("infoCompra",infoCompra)
         Toast.makeText(this, infoCompra.toString(), Toast.LENGTH_SHORT).show()
+        val bundle: Bundle = Bundle()
+        bundle.putSerializable("infoCompra",infoCompra)
         intent.putExtras(bundle)
         startActivity(cambiarPantalla)
     }
 
     private fun recibirDatos(){
         val intent : Bundle? = this.intent.extras
-        pVendida   = intent?.getSerializable("pVendida") as Pieza?
+        pVendida   = intent?.getSerializable("pzaVendida") as Pieza?
         Toast.makeText(this, pVendida.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getFormData(){
+            var direccion : String ?=null
+            var fecha = Date()
+            var comprador = auth.currentUser.toString()
+            direccion = spinnerTipo.selectedItem.toString()+txtCalle.text.toString()+txtNumCalle.text.toString()+
+                    ", "+txtCodPostal.text.toString()+", "+txtCiudad.text.toString()
+            infoCompra  = Compra(direccion, fecha, comprador, pVendida)
+            Toast.makeText(this, pVendida.toString(), Toast.LENGTH_SHORT).show()
+
 
     }
 }

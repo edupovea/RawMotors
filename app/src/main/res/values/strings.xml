@@ -45,6 +45,14 @@
     <string name="adPieza">Añadir pieza</string>
     <string name="addCorrrect">Información guardada correctamente</string>
     <string name="addedWrong">No ha sido posible guardar la información correctamente</string>
+    <string name="editar">Editar</string>
+    <string name="buscador">Buscador</string>
+    <string name="buscar">Buscar</string>
+    <string name="inicio">Inicio</string>
+    <string name="piezaEditada">Producto editado correctamente</string>
+    <string name="piezaNoEditada">Error en la edición</string>
+    <string name="edita_tu_pieza">Edita tu pieza</string>
+    <string name="exitoso">Exito</string>
 
 
     <array name="filtros">

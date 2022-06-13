@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rawmotors.R
 import com.google.firebase.auth.FirebaseAuth
@@ -36,7 +38,16 @@ class BuscarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+        recyclerBuscador.apply {
+            setHasFixedSize(true)
+            var itemDecoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
+            AppCompatResources.getDrawable(context as FragmentActivity, R.drawable.divider)?.let {
+                itemDecoration.setDrawable(
+                    it
+                )
+            }
+            addItemDecoration(itemDecoration)
+        }
         btnBuscar.setOnClickListener {
             getBuscadorPiezas()
         }
@@ -56,12 +67,11 @@ class BuscarFragment : Fragment() {
         }else{
             filtroBD = spFiltro.selectedItem.toString()
         }
-        Toast.makeText(this.requireContext(), filtroBD+"", Toast.LENGTH_SHORT).show()
         listaBuscadorPiezas = arrayListOf<Pieza>()
         listaBuscadorPiezas.clear()
-        val docPieza = db.collection("piezas").orderBy(filtroBD).whereEqualTo("Vendido", false)
-           // .whereEqualTo(filtroBD,txtFiltro.toString())
-//            docPieza.whereNotEqualTo("Email", thisUser).orderBy("Email")
+        val docPieza = db.collection("piezas").whereEqualTo("Vendido", false).orderBy(filtroBD)
+            // .whereEqualTo(filtroBD,txtFiltro.toString())
+            // docPieza.whereNotEqualTo("Email", thisUser).orderBy("Email")
 
 
         docPieza.get()
@@ -77,15 +87,14 @@ class BuscarFragment : Fragment() {
                     if (em != thisUser){
                         listaBuscadorPiezas.add(pieza)
                     }
-
                 }
 
             }.addOnCompleteListener {
                 Toast.makeText(this.context, " "+listaBuscadorPiezas.size, Toast.LENGTH_SHORT).show()
-                var adapter = PiezaInicioAdapter(context as FragmentActivity, listaBuscadorPiezas)
-                recyclerBuscador.adapter = adapter
+                var adapterBuscador = PiezaInicioAdapter(context as FragmentActivity, listaBuscadorPiezas)
+                recyclerBuscador.adapter = adapterBuscador
                 recyclerBuscador.layoutManager = LinearLayoutManager(context)
-                adapter.notifyDataSetChanged()
+                adapterBuscador.notifyDataSetChanged()
             }
     }
 

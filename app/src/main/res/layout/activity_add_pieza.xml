@@ -36,7 +36,6 @@
         android:textColor="@color/black"
         android:layout_margin="10dp"
         android:textColorHint="@color/black"
-
         android:background="@drawable/btn_botones_redondos_marron"
         >
 

@@ -28,9 +28,10 @@ class DetalleActivity : AppCompatActivity() {
     }
 
     private fun enviarDatos(){
-        val cambiarPantalla = Intent(this, ComprarActivity::class.java)
+        val cambiarPantalla = Intent(this@DetalleActivity, ComprarActivity::class.java)
         val bundle = Bundle()
-        bundle.putSerializable("pVendida", pzaVendida)
+        bundle.putSerializable("pzaVendida", pzaVendida)
+        Toast.makeText(this, pzaVendida.toString(), Toast.LENGTH_SHORT).show()
         intent.putExtras(bundle)
         startActivity(cambiarPantalla)
     }
