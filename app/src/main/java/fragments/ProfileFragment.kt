@@ -119,7 +119,7 @@ class ProfileFragment : Fragment() {
                     pieza.Modelo = document.data.getValue("Modelo").toString()
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio =  document.data.getValue("Price").toString().toDouble()
-                        profileArrayList.add(pieza)
+                    profileArrayList.add(pieza)
 
                 }
             }.addOnCompleteListener {

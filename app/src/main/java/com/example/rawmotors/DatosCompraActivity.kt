@@ -1,5 +1,6 @@
 package com.example.rawmotors
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -77,7 +78,7 @@ class DatosCompraActivity : AppCompatActivity() {
                 "Fecha Compra" to informacionCompra.fecha.toString(),
                 "Comprador" to thisUser,
                 "Nombre Pieza" to informacionCompra.pieza?.Nombre.toString(),
-                "Pieza" to informacionCompra.pieza
+                "Pieza" to informacionCompra.pieza.toString()
 
 
             )
@@ -94,6 +95,12 @@ class DatosCompraActivity : AppCompatActivity() {
             if (it.isSuccessful){
 
                 showAlert(R.string.piezaComprada, R.string.exitoso, R.string.continuar)
+                val intent: Intent =
+                    Intent(
+                        this@DatosCompraActivity,
+                        InfladorActivity::class.java
+                    )
+                startActivity(intent)
 
             }else{
                 showAlert(R.string.error, R.string.error, R.string.error)

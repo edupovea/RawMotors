@@ -17,6 +17,7 @@ import models.Compra
 import models.Pieza
 import recycler.PiezaCompradaAdapter
 import recycler.PiezaVendidaAdapter
+import kotlin.math.roundToLong
 
 class CompradoActivity : AppCompatActivity() {
     private lateinit var compradoArraylist: ArrayList<Pieza>
@@ -40,10 +41,6 @@ class CompradoActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
 
 
     private fun getPiezasCompradas() {
@@ -55,9 +52,7 @@ class CompradoActivity : AppCompatActivity() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     var nombre: String
-                    nombre = document.data.getValue("Pieza Nombre").toString()
-                    Toast.makeText(this, ""+nombre, Toast.LENGTH_SHORT).show()
-                    Log.d("nombre", nombre)
+                    nombre = document.data.getValue("Nombre Pieza").toString()
                     nombresArray.add(nombre)
                 }
             }.addOnCompleteListener {

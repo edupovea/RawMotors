@@ -41,13 +41,14 @@ class BuscarFragment : Fragment() {
         recyclerBuscador.apply {
             setHasFixedSize(true)
             var itemDecoration = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
-            AppCompatResources.getDrawable(context as FragmentActivity, R.drawable.divider)?.let {
+            AppCompatResources.getDrawable(this.context, R.drawable.divider)?.let {
                 itemDecoration.setDrawable(
                     it
                 )
             }
             addItemDecoration(itemDecoration)
         }
+
         btnBuscar.setOnClickListener {
             getBuscadorPiezas()
         }
@@ -56,7 +57,11 @@ class BuscarFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        btnBuscar.setOnClickListener {
+            getBuscadorPiezas()
+        }
     }
+
 
 
     private fun getBuscadorPiezas() {
@@ -69,11 +74,9 @@ class BuscarFragment : Fragment() {
         }
         listaBuscadorPiezas = arrayListOf<Pieza>()
         listaBuscadorPiezas.clear()
-        val docPieza = db.collection("piezas").whereEqualTo("Vendido", false).orderBy(filtroBD)
+        val docPieza = db.collection("piezas").orderBy(filtroBD)
             // .whereEqualTo(filtroBD,txtFiltro.toString())
             // docPieza.whereNotEqualTo("Email", thisUser).orderBy("Email")
-
-
         docPieza.get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -84,9 +87,13 @@ class BuscarFragment : Fragment() {
                     pieza.Descripcion = document.data.getValue("Descripcion").toString()
                     pieza.Precio = document.data.getValue("Price").toString().toDouble()
                     em = document.data.getValue("Email").toString()
-                    if (em != thisUser){
-                        listaBuscadorPiezas.add(pieza)
+                    pieza.Vendido = document.data.getValue("Vendido").toString().toBoolean()
+                    if (pieza.Vendido == false){
+                        if (em != thisUser){
+                            listaBuscadorPiezas.add(pieza)
+                        }
                     }
+
                 }
 
             }.addOnCompleteListener {
