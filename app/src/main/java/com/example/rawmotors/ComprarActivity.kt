@@ -19,7 +19,7 @@ class ComprarActivity : AppCompatActivity() {
     var pVendidaString: String? = null
 
     lateinit var infoCompra: Compra
-    var piezaprueba: Pieza = Pieza("Coche", "BMW", "X6", 123.23, "Nuevo", null, false)
+   // var piezaprueba: Pieza = Pieza("Coche", "BMW", "X6", 123.23, "Nuevo", false)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

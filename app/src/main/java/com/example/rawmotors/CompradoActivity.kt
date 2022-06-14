@@ -42,12 +42,11 @@ class CompradoActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        getPiezasCompradas()
+
     }
 
 
     private fun getPiezasCompradas() {
-
         compradoArraylist = arrayListOf<Pieza>()
         var nombresArray = arrayListOf<String>()
         compradoArraylist.clear()
@@ -83,11 +82,6 @@ class CompradoActivity : AppCompatActivity() {
                         adapterComprado.notifyDataSetChanged()
                     }
                 }
-
-
-
-
-
             }
 
 
