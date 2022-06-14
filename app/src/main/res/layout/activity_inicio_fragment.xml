@@ -7,14 +7,27 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context="fragments.InicioFragment"
-    android:background="@color/main_brown">
+    android:background="@drawable/bg_gradient">
 
-    <TextView
-        android:id="@+id/textView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lyLbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/inicio"
-        android:textSize="48sp" />
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textColor="@color/black">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lblTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/inicio"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

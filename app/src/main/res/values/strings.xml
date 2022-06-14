@@ -62,6 +62,8 @@
     <string name="MMYY">MM/YY</string>
     <string name="euro">€</string>
     <string name="piezaComprada">Pieza comprada</string>
+    <string name="productosComprados">Productos comprados</string>
+    <string name="productosVendidos">Productos vendidos</string>
 
 
     <array name="filtros">

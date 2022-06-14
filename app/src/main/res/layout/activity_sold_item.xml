@@ -9,12 +9,25 @@
     android:background="@drawable/bg_gradient"
     tools:context=".SoldItemActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lyLbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="esto es vendido"
-        android:textSize="48sp" />
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textColor="@color/black">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lblTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/productosVendidos"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
