@@ -53,6 +53,15 @@
     <string name="piezaNoEditada">Error en la edición</string>
     <string name="edita_tu_pieza">Edita tu pieza</string>
     <string name="exitoso">Exito</string>
+    <string name="nombre_del_titular">Nombre del titular</string>
+    <string name="dataTarjeta">Introduce los datos de la tarjeta</string>
+    <string name="appelidos">Apellidos</string>
+    <string name="numTarjeta">Número de la tarjeta</string>
+    <string name="fechaCad">Fecha vencimiento</string>
+    <string name="CVV">CVV</string>
+    <string name="MMYY">MM/YY</string>
+    <string name="euro">€</string>
+    <string name="piezaComprada">Pieza comprada</string>
 
 
     <array name="filtros">

@@ -35,7 +35,7 @@ class PiezaAdapter (val contexto: FragmentActivity, val piezas : ArrayList<Pieza
 
         holder.foto.setOnClickListener {
             val intent: Intent = Intent(contexto, EditPiezaActivity::class.java)
-            var pzaEdit : Pieza? = piezas[position]
+            var pzaEdit : Pieza = piezas[position]
             val bundle = Bundle()
             bundle.putSerializable("infoPieza", pzaEdit)
             intent.putExtras(bundle)

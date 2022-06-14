@@ -13,11 +13,13 @@ import models.Pieza
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
+import kotlin.text.Typography.euro
 
 class DetalleActivity : AppCompatActivity() {
     val auth = FirebaseAuth.getInstance();
     var prec: Double?=null
     var pzaVendida : Pieza? = Pieza()
+    lateinit var p2 : Pieza
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle)
@@ -29,20 +31,17 @@ class DetalleActivity : AppCompatActivity() {
 
     private fun enviarDatos(){
         val cambiarPantalla = Intent(this@DetalleActivity, ComprarActivity::class.java)
-        val bundle = Bundle()
-        bundle.putSerializable("pzaVendida", pzaVendida)
-        Toast.makeText(this, pzaVendida.toString(), Toast.LENGTH_SHORT).show()
-        intent.putExtras(bundle)
+        cambiarPantalla.putExtra("pzaVendida", pzaVendida)
         startActivity(cambiarPantalla)
     }
 
-
+/* Funcino que recibe datos del bundle desde el adapater de nuestra pieza de la pantalla inicio*/
     private fun recibirDatos(){
         val intent : Bundle? = this.intent.extras
         pzaVendida  = intent?.getSerializable("infoDetalle") as Pieza?
         dtlNom.setText(pzaVendida?.Nombre)
         prec = pzaVendida?.Precio
-        dtlPrice.setText(prec.toString()+"€")
+        dtlPrice.setText(prec.toString()+R.string.euro)
         dtlDesc.setText(pzaVendida?.Descripcion)
         dtlBrand.setText(pzaVendida?.Marca)
         dtlModel.setText(pzaVendida?.Modelo)

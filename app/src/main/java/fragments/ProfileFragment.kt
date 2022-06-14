@@ -13,10 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.rawmotors.AddPiezaActivity
-import com.example.rawmotors.InfladorActivity
-import com.example.rawmotors.R
-import com.example.rawmotors.SoldItemActivity
+import com.example.rawmotors.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.*
@@ -69,9 +66,19 @@ class ProfileFragment : Fragment() {
             }
             addItemDecoration(itemDecoration)
         }
+        btnComprado.setOnClickListener {
+            val cambiarPantalla = Intent(context, CompradoActivity::class.java)
+            startActivity(cambiarPantalla)
+        }
 
         btnAddPieza.setOnClickListener {
             val cambiarPantalla = Intent(context, AddPiezaActivity::class.java)
+            startActivity(cambiarPantalla)
+        }
+        btnSettings.setOnClickListener {
+            Toast.makeText(context, "Loging out...", Toast.LENGTH_SHORT).show()
+            auth.signOut()
+            val cambiarPantalla = Intent(context, MainActivity::class.java)
             startActivity(cambiarPantalla)
         }
 

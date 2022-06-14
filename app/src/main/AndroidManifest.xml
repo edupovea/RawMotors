@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RawMotors">
         <activity
+            android:name=".CompradoActivity"
+            android:exported="false" />
+        <activity
             android:name=".SoldItemActivity"
             android:exported="false" />
         <activity
             android:name=".DatosCompraActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ComprarActivity"
             android:exported="false" />
@@ -29,8 +32,7 @@
             android:exported="true" />
         <activity
             android:name=".InfladorActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".RegistroActivity"
             android:exported="false" />
@@ -39,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
