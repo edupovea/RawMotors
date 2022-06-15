@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rawmotors.R
+import java.util.*
 
 class PiezaViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -14,6 +15,7 @@ class PiezaViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     val precio: TextView by lazy { itemView.findViewById(R.id.txtPrecio)}
     val foto: ImageView by lazy { itemView.findViewById(R.id.foto)}
     val btnBorrar: ImageView by lazy { itemView.findViewById(R.id.imgDelete)}
+
 
 
 }

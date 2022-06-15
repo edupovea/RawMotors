@@ -24,7 +24,7 @@ class PiezaVendidaAdapter (val contexto: AppCompatActivity, val piezas : ArrayLi
         holder.nombre.text = piezas[position].Nombre.toString()
         holder.marca.text = piezas[position].Marca.toString()
         holder.modelo.text = piezas[position].Modelo.toString()
-        holder.precio.text = piezas[position].Precio.toString() + R.string.euro
+        holder.precio.text = piezas[position].Precio.toString() + "€"
 
     }
 

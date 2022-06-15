@@ -62,6 +62,7 @@ class InicioFragment() : Fragment() {
     }
 
     private fun getInicioPiezas() {
+        //mostramos todas las piezas a la venta
         var em : String
         listaInicioPiezas = arrayListOf<Pieza>()
         listaInicioPiezas.clear()

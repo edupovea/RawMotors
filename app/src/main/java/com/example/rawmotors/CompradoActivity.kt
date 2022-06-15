@@ -43,22 +43,26 @@ class CompradoActivity : AppCompatActivity() {
 
 
 
+    //Funcion que muestra las piezas que nosotros como usuarios hemos adquirido desde la app
     private fun getPiezasCompradas() {
         compradoArraylist = arrayListOf<Pieza>()
-        var nombresArray = arrayListOf<String>()
+        var arrayNombrePiezas = arrayListOf<String>()
         compradoArraylist.clear()
         val docCompra = db.collection("compras").whereEqualTo("Comprador", thisUser)
         docCompra.get()
             .addOnSuccessListener { result ->
                 for (document in result) {
+                    //Sacamos el nombre de la pieza desde nuestra coleccion piezas
                     var nombre: String
                     nombre = document.data.getValue("Nombre Pieza").toString()
-                    nombresArray.add(nombre)
+                    //Guardamos los nombres en un array de String
+                    arrayNombrePiezas.add(nombre)
                 }
             }.addOnCompleteListener {
 
-                for (i in nombresArray.indices){
-                    val docPieza = db.collection("piezas").whereEqualTo("Nombre", nombresArray[i])
+                for (i in arrayNombrePiezas.indices){
+                    //Y recorremos el array de nombres de piezas en nuestra coleccion piezas para rellenar el adapter
+                    val docPieza = db.collection("piezas").whereEqualTo("Nombre", arrayNombrePiezas[i])
                     docPieza.get().addOnSuccessListener { result ->
                         for (document in result){
                             var pieza: Pieza = Pieza()
@@ -71,6 +75,7 @@ class CompradoActivity : AppCompatActivity() {
                         }
 
                     }.addOnCompleteListener {
+                        //Rellenamos el adapter y lo actualizamos
                         var adapterComprado = PiezaCompradaAdapter(this@CompradoActivity, compradoArraylist)
                         recyclerComprado.adapter = adapterComprado
                         recyclerComprado.layoutManager = LinearLayoutManager(this)

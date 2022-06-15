@@ -19,6 +19,7 @@ import kotlin.system.exitProcess
 
 class AddPiezaActivity : AppCompatActivity() {
 
+    //Declaramos nuestras variables de Firebase
     private val db = FirebaseFirestore.getInstance()
     val auth by lazy { FirebaseAuth.getInstance() }
 
@@ -27,7 +28,6 @@ class AddPiezaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_pieza)
-        //recibirDatos()
 
         btnAdd.setOnClickListener {
             if (!txtNom.text?.isNullOrEmpty()!! && !txtBrand.text?.isNullOrEmpty()!! && !txtModel.text?.isNullOrEmpty()!! && !txtDesc.text?.isNullOrEmpty()!! && !txtPrice.text?.isNullOrEmpty()!!) {
@@ -47,6 +47,7 @@ class AddPiezaActivity : AppCompatActivity() {
     }
 
     fun addPieza(): Boolean{
+        //Funcion que añade la pieza a la colleccion piezas con los siguientes campos
         val thisUser = auth.currentUser?.email.toString()
         val vendido : Boolean = false
 
@@ -67,19 +68,6 @@ class AddPiezaActivity : AppCompatActivity() {
 
     }
 
-    private fun recibirDatos(){
-        val intent : Bundle? = this.intent.extras
-        val pieza : Pieza? = intent?.getSerializable("infoPieza") as Pieza?
-        Toast.makeText(this, pieza?.Precio.toString(), Toast.LENGTH_SHORT).show()
-        if (pieza == null){
-            txtPrice.setText("")
-        }
-        txtNom.setText(pieza?.Nombre)
-        txtPrice.setText(pieza?.Precio.toString())
-        txtDesc.setText(pieza?.Descripcion)
-        txtBrand.setText(pieza?.Marca)
-        txtModel.setText(pieza?.Modelo)
-    }
 
     private fun showAlert(msj: Int, title : Int, btn : Int) {
         val builder = AlertDialog.Builder(this)

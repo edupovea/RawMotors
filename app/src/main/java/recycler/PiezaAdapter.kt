@@ -13,6 +13,7 @@ import com.example.rawmotors.EditPiezaActivity
 import com.example.rawmotors.R
 import com.google.firebase.firestore.FirebaseFirestore
 import models.Pieza
+import kotlin.random.Random
 
 
 class PiezaAdapter (val contexto: FragmentActivity, val piezas : ArrayList<Pieza>):RecyclerView.Adapter<PiezaViewHolder>() {
@@ -32,7 +33,6 @@ class PiezaAdapter (val contexto: FragmentActivity, val piezas : ArrayList<Pieza
         holder.marca.text = piezas[position].Marca.toString()
         holder.modelo.text = piezas[position].Modelo.toString()
         holder.precio.text = piezas[position].Precio.toString() + "€"
-
         holder.foto.setOnClickListener {
             val intent: Intent = Intent(contexto, EditPiezaActivity::class.java)
             var pzaEdit : Pieza = piezas[position]

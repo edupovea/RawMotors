@@ -60,12 +60,15 @@ class DatosCompraActivity : AppCompatActivity() {
 
     }
 
+    //Recibimos los datos de contacto del comprador para efectuar la compra
     private fun recibirDatos(){
         if (intent.getSerializableExtra("infoCompra") != null) {
             informacionCompra = intent.getSerializableExtra("infoCompra") as Compra
         }
     }
 
+
+    //Terminamos la compra añadiendo a la coleccion compras y seteamos a true nuestro campo vendido de la coleccion piezas
     fun terminarCompra(){
 
         db.collection("compras").document(txtNomTitular.text.toString()+" "+informacionCompra.pieza?.Nombre).set(

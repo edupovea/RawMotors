@@ -91,6 +91,7 @@ class ProfileFragment : Fragment() {
 
 
     fun getNombre(): Boolean {
+        //Mostramos el user sacado de la coleccion users donde guardamos user y email
         var uname : String ?= null
         val username = db.collection("users").whereEqualTo("Email", thisUser)
         username.get().addOnSuccessListener { resulta ->
@@ -105,6 +106,7 @@ class ProfileFragment : Fragment() {
         return true
     }
      private fun getProfilePiezas() {
+         //Mostramos las piezas que estamos vendiendo nsootros
 
          profileArrayList = arrayListOf<Pieza>()
          profileArrayList.clear()

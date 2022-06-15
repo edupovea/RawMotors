@@ -64,6 +64,8 @@
     <string name="piezaComprada">Pieza comprada</string>
     <string name="productosComprados">Productos comprados</string>
     <string name="productosVendidos">Productos vendidos</string>
+    <string name="vendido">Vendido</string>
+    <string name="comprado">Comprado</string>
 
 
     <array name="filtros">

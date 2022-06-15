@@ -16,10 +16,12 @@ import java.util.*
 import kotlin.text.Typography.euro
 
 class DetalleActivity : AppCompatActivity() {
+
     val auth = FirebaseAuth.getInstance();
     var prec: Double?=null
     var pzaVendida : Pieza? = Pieza()
-    lateinit var p2 : Pieza
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle)
@@ -41,7 +43,7 @@ class DetalleActivity : AppCompatActivity() {
         pzaVendida  = intent?.getSerializable("infoDetalle") as Pieza?
         dtlNom.setText(pzaVendida?.Nombre)
         prec = pzaVendida?.Precio
-        dtlPrice.setText(prec.toString()+R.string.euro)
+        dtlPrice.setText(prec.toString()+"€")
         dtlDesc.setText(pzaVendida?.Descripcion)
         dtlBrand.setText(pzaVendida?.Marca)
         dtlModel.setText(pzaVendida?.Modelo)

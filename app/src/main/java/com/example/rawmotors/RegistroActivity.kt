@@ -35,6 +35,7 @@ class RegistroActivity : AppCompatActivity() {
                     email.text.toString(), pass.text.toString()
                 )
 
+            //Guardamos los valores de user y email en una coleccion para mostrar el user en la pantalla profile
                 val valoresLogin: HashMap<String, Any> =
                     HashMap<String, Any>()
                 valoresLogin.put("Usuario" , user.text.toString())
@@ -55,13 +56,6 @@ class RegistroActivity : AppCompatActivity() {
                     object : OnCompleteListener<AuthResult>{
                         override fun onComplete(p0: Task<AuthResult>) {
                             if (tarea.isSuccessful){
-                                Toast.makeText(
-                                    this@RegistroActivity,
-                                    getString(R.string.registroCompletado)
-                                            + " " + auth.currentUser?.email.toString(),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
                                 val intent: Intent =
                                     Intent(
                                         this@RegistroActivity,
@@ -69,6 +63,7 @@ class RegistroActivity : AppCompatActivity() {
                                     )
                                 startActivity(intent)
                             }else{
+                                //Capturamos las excepciones posibles de Firebase
                                 try {
                                     throw tarea.exception!!
                                 } catch (e: FirebaseAuthWeakPasswordException) {

@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnForgotPass.setOnClickListener {
+            //Envio de correo de recuperacion de contraseña
             val tarea = auth.sendPasswordResetEmail(user.text.toString())
 
                 tarea.addOnCompleteListener {

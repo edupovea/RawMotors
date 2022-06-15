@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="1:1"
-            android:src="@drawable/coche"
+            android:src="@drawable/perfil"
             app:civ_border_color="@color/main_brown"
             app:civ_border_width="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -40,12 +40,12 @@
             android:id="@+id/btnSettings"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="1:4"
+            app:layout_constraintDimensionRatio="1:2.5"
             android:layout_marginRight="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/settings" />
+            app:srcCompat="@drawable/logout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +56,9 @@
             android:id="@+id/btnVendido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vendido"
+            android:text="@string/vendido"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnComprado"
             app:layout_constraintHorizontal_bias="0.5"
@@ -67,7 +69,9 @@
             android:id="@+id/btnComprado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Comprado"
+            android:text="@string/comprado"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -83,9 +87,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerPiezas"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

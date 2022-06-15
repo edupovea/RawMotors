@@ -59,6 +59,7 @@ class SoldItemActivity : AppCompatActivity() {
                     vendidasArraylist.add(pieza)
                 }
             }.addOnCompleteListener {
+                //Rellenamos el adapter y le pasamos el array de piezas vendidas
                 var adapterSold = PiezaVendidaAdapter(this@SoldItemActivity, vendidasArraylist)
                 recyclerVendido.adapter = adapterSold
                 recyclerVendido.layoutManager = LinearLayoutManager(this)

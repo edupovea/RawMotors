@@ -12,7 +12,6 @@
         android:id="@+id/txtUserReg"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="60dp"
-
         android:layout_height="wrap_content"
         android:hint="@string/usuario"
         android:padding="10dp"

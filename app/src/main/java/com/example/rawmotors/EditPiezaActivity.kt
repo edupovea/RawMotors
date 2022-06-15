@@ -55,27 +55,7 @@ class EditPiezaActivity : AppCompatActivity() {
     }
 
     fun editPieza() {
-        /*
-        val piezaData = HashMap<String, Any>()
-        piezaData.put("Email", thisUser)
-        piezaData.put("Nombre", lblNom.text.toString())
-        piezaData.put("Brand", lblBrand.text.toString())
-        piezaData.put("Modelo", txtEditModel.text.toString())
-        piezaData.put("Descripcion", txtEditDesc.text.toString())
-        piezaData.put("Price", txtEditPrice.text.toString().toDouble())
-        piezaData.put("Vendido", false)
 
-        val act = db.collection("piezas").document(lblNom.text.toString()+" "+lblBrand.text.toString())
-            act.update(piezaData).addOnCompleteListener {
-                if (it.isSuccessful){
-                    showAlert(R.string.piezaEditada, R.string.exitoso, R.string.continuar)
-
-                }else{
-                    showAlert(R.string.error, R.string.error, R.string.error)
-
-                }
-            }
-        }*/
         val act = db.collection("piezas")
             .document(lblNom.text.toString() + " " + lblBrand.text.toString())
         act.update(

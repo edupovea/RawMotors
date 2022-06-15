@@ -65,6 +65,7 @@ class BuscarFragment : Fragment() {
 
 
     private fun getBuscadorPiezas() {
+        //Sacamos las piezas que correspondan con la busqueda y sino mostramos similares.
         var filtroBD : String ?= null
         var em : String
         if (spFiltro.selectedItem.toString() == "Marca") {
@@ -97,7 +98,6 @@ class BuscarFragment : Fragment() {
                 }
 
             }.addOnCompleteListener {
-                Toast.makeText(this.context, " "+listaBuscadorPiezas.size, Toast.LENGTH_SHORT).show()
                 var adapterBuscador = PiezaInicioAdapter(context as FragmentActivity, listaBuscadorPiezas)
                 recyclerBuscador.adapter = adapterBuscador
                 recyclerBuscador.layoutManager = LinearLayoutManager(context)
