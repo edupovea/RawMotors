@@ -106,7 +106,7 @@ class ProfileFragment : Fragment() {
         return true
     }
      private fun getProfilePiezas() {
-         //Mostramos las piezas que estamos vendiendo nsootros
+         //Mostramos las piezas que estamos vendiendo nosotros
 
          profileArrayList = arrayListOf<Pieza>()
          profileArrayList.clear()

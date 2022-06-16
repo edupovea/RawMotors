@@ -43,14 +43,6 @@ class RegistroActivity : AppCompatActivity() {
 
                 val tareaInsertar= firestore.collection("users").document(email.text.toString()).set(valoresLogin)
 
-                tareaInsertar.addOnCompleteListener {
-                    if (it.isSuccessful){
-                        Toast.makeText(this@RegistroActivity, "coleccion insertada", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(this@RegistroActivity, "coleccion NO insertada", Toast.LENGTH_SHORT).show()
-
-                    }
-                }
                 
                 tarea.addOnCompleteListener ( this ,
                     object : OnCompleteListener<AuthResult>{
