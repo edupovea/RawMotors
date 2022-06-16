@@ -33,7 +33,7 @@ class PiezaAdapter (val contexto: FragmentActivity, val piezas : ArrayList<Pieza
         holder.marca.text = piezas[position].Marca.toString()
         holder.modelo.text = piezas[position].Modelo.toString()
         holder.precio.text = piezas[position].Precio.toString() + "€"
-        holder.foto.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val intent: Intent = Intent(contexto, EditPiezaActivity::class.java)
             var pzaEdit : Pieza = piezas[position]
             val bundle = Bundle()

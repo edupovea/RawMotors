@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="30sp"
-            android:layout_marginLeft="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSettings"
             app:layout_constraintStart_toEndOf="@+id/avatarUser"
             app:layout_constraintTop_toTopOf="@+id/avatarUser" />
 

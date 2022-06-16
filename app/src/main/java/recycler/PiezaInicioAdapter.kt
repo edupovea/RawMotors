@@ -42,8 +42,7 @@ class PiezaInicioAdapter (val contexto: FragmentActivity, val piezas : ArrayList
         holder.precio.text = piezas[position].Precio.toString() + "€"
 
 
-        holder.foto.setOnClickListener {
-
+        holder.itemView.setOnClickListener {
             val intent: Intent = Intent(contexto, DetalleActivity::class.java)
             var detailPieza : Pieza? = piezas[position]
             val bundle = Bundle()
