@@ -35,6 +35,8 @@ class InfladorActivity : AppCompatActivity() {
         }
     }
 
+
+
     //Funcion que hace efectivo el uso del menu de navegacion y cambio de fragments de manera dinamica
     private fun replaceFragment(fragment: Fragment){
         if (fragment!=null){
